@@ -13,10 +13,10 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app_v1/model/weather_model.dart';
 import 'package:weather_app_v1/view/login_page.dart';
-import 'package:weather_app_v1/widtges.dart';
+import 'package:weather_app_v1/widgets/widtges.dart';
 
-import 'contoroller/ui_controller.dart';
-import 'model/geo_location.dart';
+import '../contoroller/ui_controller.dart';
+import '../model/geo_location.dart';
 
 String city = '';
 

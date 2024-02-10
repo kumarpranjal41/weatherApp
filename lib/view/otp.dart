@@ -8,7 +8,7 @@ import 'package:sizer/sizer.dart';
 import 'package:weather_app_v1/view/phone.dart';
 
 // import '../home_page.dart';
-import '../view_home_page.dart';
+import 'view_home_page.dart';
 
 // import 'package:varta2/phone.dart';
 

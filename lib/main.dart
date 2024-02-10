@@ -9,7 +9,7 @@ import 'package:sizer/sizer.dart';
 import 'package:weather_app_v1/firebase_options.dart';
 import 'package:weather_app_v1/view/login_page.dart';
 import 'package:weather_app_v1/view/splash_screen.dart';
-import 'package:weather_app_v1/view_home_page.dart';
+import 'package:weather_app_v1/view/view_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized.

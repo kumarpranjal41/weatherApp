@@ -7,7 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:sizer/sizer.dart';
-import 'package:weather_app_v1/view_home_page.dart';
+import 'package:weather_app_v1/view/view_home_page.dart';
 import 'package:weather_app_v1/view/phone.dart';
 
 // import '../home_page.dart';

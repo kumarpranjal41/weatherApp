@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:weather_app_v1/contoroller/ui_controller.dart';
-import 'package:weather_app_v1/view_home_page.dart';
+import 'package:weather_app_v1/view/view_home_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity/connectivity.dart';
 import 'package:weather_app_v1/model/weather_model.dart';
