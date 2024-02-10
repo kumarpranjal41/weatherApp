@@ -7,10 +7,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:sizer/sizer.dart';
-import 'package:weather_app_v1/home_page_2.dart';
+import 'package:weather_app_v1/view_home_page.dart';
 import 'package:weather_app_v1/view/phone.dart';
 
-import '../home_page.dart';
+// import '../home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -48,8 +48,8 @@ class _LoginPageState extends State<LoginPage> {
       var finalResult = await FirebaseAuth.instance
           .signInWithCredential(credential)
           .then((value) async {
-        GetStorage().write("googlelogin", 0);
-        loginDetector.write('isLoginDone', true);
+        // GetStorage().write("googlelogin", 0);
+        GetStorage().write('isLoginDone', true);
 
 // dhasgfg
 
@@ -74,18 +74,18 @@ class _LoginPageState extends State<LoginPage> {
             //     'profileUrl': fieldValue,
             //   },
             // );
-            Get.to(HomePage2());
+            Get.to(ViewHomePage());
 
             //print('Field Value: $fieldValue');
           } else {
             print('Document does not exis ssd t');
-            Get.to(HomePage2());
+            Get.to(ViewHomePage());
           }
         } catch (e) {
           vaibhav = false;
           //return false;
           print('Error fetching data: $e');
-          Get.to(HomePage2());
+          Get.to(ViewHomePage());
         }
 //asdnsd
 

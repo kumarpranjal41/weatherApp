@@ -2,11 +2,14 @@ import 'package:connectivity/connectivity.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_app_v1/firebase_options.dart';
+import 'package:weather_app_v1/view/login_page.dart';
 import 'package:weather_app_v1/view/splash_screen.dart';
+import 'package:weather_app_v1/view_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized.
@@ -29,19 +32,15 @@ class MyApp extends StatelessWidget {
     return Sizer(builder:
         (BuildContext context, Orientation orientation, DeviceType deviceType) {
       return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'weather app',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: SplashScreen());
+          home: GetStorage().read('isLoginDone') == true
+              ? ViewHomePage()
+              : LoginPage());
     });
   }
 }
-// Future<bool> checkInternetConnectivity() async {
-//   var connectivityResult = await Connectivity().checkConnectivity();
-//   if (connectivityResult == ConnectivityResult.none) {
-//     return false; // No internet connection
-//   }
-//   return true; // Internet connection is available
-// }

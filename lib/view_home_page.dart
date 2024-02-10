@@ -1,7 +1,9 @@
 //HOMEPAGE2
 
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app_v1/model/weather_model.dart';
+import 'package:weather_app_v1/view/login_page.dart';
 import 'package:weather_app_v1/widtges.dart';
 
 import 'contoroller/ui_controller.dart';
@@ -17,17 +20,23 @@ import 'model/geo_location.dart';
 
 String city = '';
 
-class HomePage2 extends StatefulWidget {
-  const HomePage2({super.key});
+class ViewHomePage extends StatefulWidget {
+  const ViewHomePage({super.key});
 
   @override
-  State<HomePage2> createState() => _HomePage2State();
+  State<ViewHomePage> createState() => _ViewHomePageState();
 }
 
-class _HomePage2State extends State<HomePage2> {
+class _ViewHomePageState extends State<ViewHomePage> {
   final cityController = TextEditingController();
   // bool gps = true;
   List<FiveDayWeather> weatherData = [];
+
+  Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Get.to(LoginPage());
+    // navigate to the login screen or perform other actions
+  }
 
   @override
   void initState() {
@@ -78,6 +87,19 @@ class _HomePage2State extends State<HomePage2> {
                 ),
               ),
             ),
+            Positioned(
+                top: height * 0.11,
+                left: width * 0.9,
+                // right: width * 0.7,
+                child: InkWell(
+                  onTap: () async {
+                    await _signOut();
+                  },
+                  child: Icon(
+                    Icons.logout,
+                    color: Colors.white,
+                  ),
+                )),
             Positioned(
               top: height * 0.14,
               left: width * 0.33,

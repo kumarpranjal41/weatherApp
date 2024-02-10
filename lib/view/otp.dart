@@ -7,8 +7,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_app_v1/view/phone.dart';
 
-import '../home_page.dart';
-import '../home_page_2.dart';
+// import '../home_page.dart';
+import '../view_home_page.dart';
 
 // import 'package:varta2/phone.dart';
 
@@ -135,10 +135,10 @@ class _MyotpState extends State<Myotp> {
                               verificationId: Myphone.verify, smsCode: code);
 
                       // Sign the user in (or link) with the credential
-                      await auth.signInWithCredential(credential).then(
-                          (value) => GetStorage().write("phonelogin", true));
+                      await auth.signInWithCredential(credential);
+                      GetStorage().write("isLoginDone", true);
 
-                      Get.to(HomePage2());
+                      Get.to(ViewHomePage());
                     },
                     child: isloading
                         ? Text('Verify Phone Number')

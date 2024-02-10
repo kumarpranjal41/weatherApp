@@ -1,8 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'package:sizer/sizer.dart';
+import 'package:weather_app_v1/view_home_page.dart';
 
 import 'login_page.dart';
 
@@ -85,7 +87,9 @@ class SplashScreen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: Color(0xFFFEE8D3),
           onPressed: () {
-            Get.to(LoginPage());
+            GetStorage().read('isLoginDone') == true
+                ? Get.to(ViewHomePage())
+                : Get.to(LoginPage());
           },
           child: Icon(
             Icons.arrow_forward,
